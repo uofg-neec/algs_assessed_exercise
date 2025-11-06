@@ -46,7 +46,16 @@ public class SuffixTree {
 	 * - assumes that characters of sInput1 and sInput2 occupy positions 0 onwards
 	 */
 	public SuffixTree (byte[] sInput1, byte[] sInput2) {
-         // to be completed!
+		root = new SuffixTreeNode(null, null, 0, 0, -1);
+		int stringLen1 = sInput1.length;
+		int stringLen2 = sInput2.length;
+		s = new byte[stringLen1 + stringLen2 + 2];
+		System.arraycopy(sInput1, 0, s, 0, stringLen1);
+		s[stringLen1] = (byte) '#';
+		System.arraycopy(sInput2, 0, s, stringLen1 + 1, stringLen2);
+		s[stringLen1 + 1 + stringLen2] = (byte) '$';
+		stringLen = stringLen1 + stringLen2 + 1;
+		buildSuffixTree();
 	}
 
 	/**

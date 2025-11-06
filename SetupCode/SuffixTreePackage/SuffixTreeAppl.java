@@ -39,6 +39,10 @@ public class SuffixTreeAppl {
 	 */
 	public Task1Info searchSuffixTree(byte[] x) {
 
+		
+
+
+
 		return null; // replace with your code!
 	}
 
