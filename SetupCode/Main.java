@@ -1,4 +1,5 @@
 import SuffixTreePackage.*;
+import java.util.*;
 
 /**
  * Main class - for accessing suffix tree applications
@@ -23,17 +24,12 @@ public class Main {
 		else {
 			// get the command from the first argument
 			String command = args[0];
+
 			String filename = args[1];
 			FileInput fileInput = new FileInput(filename);
 			byte[] text = fileInput.readFile();
 
-
 			String str = args[2];
-			byte[] string = str.getBytes();
-
-			SuffixTree suffixTree = new SuffixTree(text);
-			SuffixTreeAppl suffixTreeAppl = new SuffixTreeAppl(suffixTree);
-
 
 			switch (command) {
 
@@ -42,6 +38,10 @@ public class Main {
 					System.out.println(errorMessage);
 				break;
 				}
+
+				byte[] string = str.getBytes();
+				SuffixTree suffixTree = new SuffixTree(text);
+				SuffixTreeAppl suffixTreeAppl = new SuffixTreeAppl(suffixTree);
 
 				Task1Info task1Info = suffixTreeAppl.searchSuffixTree(string);
 
@@ -60,24 +60,32 @@ public class Main {
 				break;
 				}
 
-				// Task2Info task2Info = suffixTreeAppl.allOccurrences(string);
-				// LinkedList<Integer> positions = task2Info.getPositions();
+				byte[] string = str.getBytes();
+				SuffixTree suffixTree = new SuffixTree(text);
+				SuffixTreeAppl suffixTreeAppl = new SuffixTreeAppl(suffixTree);
+
+				Task2Info task2Info = suffixTreeAppl.allOccurrences(string);
+				LinkedList<Integer> positions = task2Info.getPositions();
 
 
-				// if (positions.isEmpty()) {
-				// 	System.out.println("The string \"" + str + "\" does not occur in " + filename);
-				// }
-				// else {
-				// 	System.out.println("The string \"" + str + "\" occurs in " + filename + " at positions:");
-				// 	for (Integer position : positions) {
-				// 		System.out.println(position);
-				// 	}
-				// 	System.out.println("The total number of occurrences is " + positions.size());
-				// }
-				// break;
+				if (positions.isEmpty()) {
+					System.out.println("The string \"" + str + "\" does not occur in " + filename);
+				}
+				else {
+					System.out.println("The string \"" + str + "\" occurs in " + filename + " at positions:");
+					for (Integer position : positions) {
+						System.out.println(position);
+					}
+					System.out.println("The total number of occurrences is " + positions.size());
+				}
+				break;
 			}
 
 			case "LRS": {
+				// byte[] string = str.getBytes();
+				// SuffixTree suffixTree = new SuffixTree(text);
+				// SuffixTreeAppl suffixTreeAppl = new SuffixTreeAppl(suffixTree);
+
 				// Task3Info task3Info = suffixTreeAppl.traverseForLrs();
 				// int len = task3Info.getLen();
 				// int pos1 = task3Info.getPos1();
@@ -102,6 +110,10 @@ public class Main {
 					System.out.println(errorMessage);
 					break;
 				}
+
+				// byte[] file2 = str.getBytes();
+				// SuffixTree suffixTree = new SuffixTree(text, file2);
+				// SuffixTreeAppl suffixTreeAppl = new SuffixTreeAppl(suffixTree);
 				
 				// Task4Info task4Info = suffixTreeAppl.traverseForLcs(text.length);
 				// int lenLCS = task4Info.getLen();
