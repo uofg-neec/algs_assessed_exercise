@@ -45,7 +45,7 @@ public class Main {
 
 				Task1Info task1Info = suffixTreeAppl.searchSuffixTree(string);
 
-				if (task1Info.getMatchNode() == null) {
+				if (task1Info.getPos() == -1) {
 					System.out.println("Search string \"" + str + "\" not found in " + filename);
 				}
 				else {
